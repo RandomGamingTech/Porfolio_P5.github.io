@@ -384,9 +384,9 @@ footer {
 
 .footer_content {
     display: flex;
-    place-content: end;
+    place-content: start;
     margin-right: 2rem;
-    padding-top: 20px;
+    padding-top: 5px;
     color: var(--color2);
     font-style: italic;
     font-size: 12px;
