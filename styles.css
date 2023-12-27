@@ -451,6 +451,12 @@ footer {
         margin-top: -16rem;
     }
 
+    .Projects_presentation {
+        min-width: 100px;
+        padding: unset;
+        font-size: 15px;
+    }
+
 }
 
 @media (max-width: 830px) {
