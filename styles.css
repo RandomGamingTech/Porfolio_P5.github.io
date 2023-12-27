@@ -1,0 +1,473 @@
+* {
+    box-sizing: border-box;
+    margin: 0; /* 1.- Esto es para que no quede nada de espacio a los alrededores del viewport. Beneficia a la navbar*/
+    padding: 0; /* 2.- Lo mismo que lo anterior.*/
+}
+
+html {
+    height: 100%;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    scroll-behavior: smooth;
+   
+}
+
+:root {
+    --color1: #FFFFFF;
+    --color2: #ECECEC;
+    --color3: #2E2E2E;
+    --color4: #5A8DA3;
+    --color5: #282e38;
+    --color6: #17202A;
+}
+
+:target {
+    scroll-margin-top: 5rem;
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    color: var(--color6);
+}
+
+.bar {
+    height: 90px;
+    width: 100%;
+    padding: 5px 3%; /* 3.- El padding lateral de 10% nos permite dejar un espacio entre los lados del logo y los list. Se ve más estetico que space around */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: var(--color5);
+    min-width: 380px; /* 4.- Así los elementos de nuestra barra no se sobrepondrán cuando el viewport alcance un tamaño muy reducido */
+    z-index: 2;
+}
+
+.img-bar {
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.links-bar li {
+    display: inline-block; /* 5.- Esto nos permite que las etiquetas se muevan una de lado de la otra.*/
+    list-style-type: none;
+    padding: 30px 0px; /* Establecemos el padding top a la altura que deseemos se vean en la barra de navegación (el ancho lo definimos en los elementos a)*/
+    font-weight: bold;
+}
+
+.links-bar li:last-of-type {
+    margin-right: 6vw; /* 6.- Esto empuja al ultimo elemento de la barra para que tenga más margen*/
+}
+
+.links-bar li:hover {
+    background-color: var(--color6);
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s; /* 7.- Esto lo que hace es suavizar el agrande de scale.*/
+    font-weight: 900;
+    color: #000000;
+    box-shadow: 10px 10px 20px 5px rgba(0, 0, 0, 0.5) inset;
+}
+
+.links-bar a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--color1);
+    padding: 31px 20px; /* Tenemos que ponerle el mismo padding de altura a los elementos a que a los li. De otra forma, no se seleccionarán de forma correcta.*/
+}
+
+.img-bar:hover {
+    transform: scale(1.2);
+    transition: 0.3s; /* 6.- Esto nos permite que el agrandamiento sea más suave y lento*/
+}
+
+.welcome {
+    padding-top: 90px;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color1);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hi_container {
+    margin: auto;
+    width: 100%;
+    height: 100%; /* 7.- Al darle un height de 100%, nuestro texto y foto se adapta al 100% de la altura de esta section. Por lo que se centra en medio.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.Hi_title {
+    font-size: 40px;
+    animation: greeting 1s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes greeting {
+    0% {
+        color: #3e3e3e;
+    }
+
+    20% {
+   
+        color: #494949;
+    }
+
+    40% {
+        color: #555555;
+    }
+
+    60% {
+        color: gray;
+    }
+
+    80% {
+        color: #6c6c6c;
+    }
+
+    100% {
+        color: #3e3e3e;
+    }
+}
+
+.hi_text p {
+    text-align: center;
+    font-size: 25px;
+}
+
+.hi_text p:first-of-type {
+    text-decoration: underline;
+}
+
+.hi_text p:last-of-type {
+    position: relative;
+    top: 30px;
+    text-align: initial;
+    font-size: 15px;
+    font-style: italic;
+    padding: 2px;
+    box-shadow: -4px 6px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+
+.My_photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: solid 3.5px var(--color5);
+    transform-origin: 50% 50%;
+    box-shadow: -8px 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.My_photo:hover {
+    transform: translate(0, -20px);
+    transition: ease-in-out 0.5s; /* 8.- Esto nos hace que nuestro translate hacia arriba sea suave y de lenta duración*/
+    cursor: pointer;
+}
+
+.project-tile {
+    background-color: #F0ECE5;
+    width: 100vw;
+    height: 100vh;
+    font-family: Raleway, sans sans-serif;
+}
+
+.Projects_presentation {
+    padding: 1rem 4rem 0 2rem;
+    font-size: 25px;
+    text-align: center;
+    color: var(--color6);
+    height: 20%;
+    min-width: 500px;
+}
+
+.Projects_presentation:hover { /* Aplicamos la animación aquí para que se active con el hover.*/
+    animation: fade_text 4s infinite ease-in-out;
+    animation-direction: alternate;
+    cursor: pointer; 
+}
+
+@keyframes fade_text {
+    0% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+    
+    50% {
+        opacity: 1;
+        transform: scale(1.006);
+    }
+
+    100% {
+        opacity: 0.1;
+        transform: scale(1);
+    }
+    
+}
+
+/* A continuación, la sección de cards */
+/* Card */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 100vh;
+    font-family: Ubuntu;
+    font-weight: 600;
+    color: var(--color2);
+}
+
+.card {
+    width: 450px;
+    height: 495px;
+    min-width: 200px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1;
+    box-shadow: -10px 11px 20px rgb(65, 65, 65);
+    cursor: pointer;
+}
+
+.card_img {
+    width: 100%;
+    height: 370px;
+    border-top-right-radius: 40px;
+    border-top-left-radius: 5px;
+    
+    z-index: 2;
+}
+
+.card_data {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    gap: 10px;
+    padding: 3px;
+    background: var(--color5);
+    box-shadow: inset 2px 1px 6px 0 #171717;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-top: -20px;
+    z-index: 3;
+}
+
+.card_data p {
+    /* margin-top: 4%;
+    margin-left: 2%;
+    margin-right: 2%; */
+    margin: 4% 2% 0 2%;
+}
+
+.card_title {
+    font-size: 17px;
+    padding-top: 2px;
+    font-weight: 900;
+    color: var(--color1);
+    animation: family 2s infinite ease-in-out;
+}
+
+@keyframes family {
+    0% {
+        color: var(--color1);
+    }
+
+    50% {
+        color: rgb(252, 60, 60);
+    }
+
+    100% {
+        color: none;
+    }
+}
+
+.card_button {
+    text-decoration: none;
+    color: unset;
+    padding: 5px 12px;
+    background-color: rgb(54, 53, 53);
+    border-radius: 2px;
+    font-size: 13px;
+    transition: 0.5s;
+    position: absolute;
+    top: 8.6rem;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    transition: ease-in-out 0.3s;
+}
+
+.card_button:hover { /* Este hover es para que el texto siempre visible de la card cambie a rojo cuando hagamos hover*/ 
+    color: red;
+}
+
+.signs { /* Este selector hace invisibles los elementos encerrados en el span y les da una transition lenta cuando hacemos hover*/
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.card:hover .signs { /* Este selector hace visibles los elementos invisibles y les da un color de naranja*/
+    opacity: 1;
+    color: orange;
+}
+
+.contact_section {
+    width: 100vw;
+    height: 80vh;
+    background-color: var(--color5);
+}
+
+.contact_container {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    top: 40%;
+    color: var(--color2);
+}
+.contact_container h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.contact_icons {
+    display: flex;
+    gap: 5px;
+    position: relative;
+    top: 50px;
+}
+
+.contact_icons a {
+    text-decoration: none;
+    color: inherit;
+    margin: 0 10px;
+}
+
+.contact_icons p {
+    transition: 0.5s;
+    padding: 5px 0;
+}
+
+.contact_icons p:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    width: 100%;
+    height: 2rem;
+    position: relative;
+    top: 81%;
+}
+
+.footer_divider {
+    border: solid 2px;
+}
+
+.footer_content {
+    display: flex;
+    place-content: end;
+    margin-right: 2rem;
+    padding-top: 20px;
+    color: var(--color2);
+    font-style: italic;
+    font-size: 12px;
+}
+
+@media (max-width: 478px) {
+    .hi_text p {
+        text-align: left;
+        font-size: 25px;
+    }
+
+}
+
+@media (max-width: 470px) {
+    .img-bar {
+        display: none; /* x Esto desaparecerá la imagen cuando el width alcance una ancho de 470px */
+    }
+
+    .bar {
+        justify-content: center; /* X Centrará los li en el medio del viewport cuando alcance este tamaño*/
+
+    }
+
+    .links-bar li:last-of-type {
+        margin-right: auto; /* 6.- Esto empuja al ultimo elemento de la barra para que tenga más margen*/
+    }
+    
+}
+
+@media (max-width: 1500px) {
+
+    .project-tile {
+        height: 1400px;
+    }
+
+    .container {
+        gap: 5rem;
+        margin-top: -8rem;
+    }
+
+}
+
+@media (max-width: 1200px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .card {
+        margin: 2rem;
+    }
+
+
+}
+
+@media (max-width: 1110px) {
+    .project-tile {
+        height: 2100px;
+        margin: 0;
+    }
+
+    .container {
+        margin-top: -16rem;
+    }
+
+}
+
+@media (max-width: 830px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .project-tile {
+        height: 2200px;
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 750px) {
+    .container {
+        width: 100%;
+        min-width: 230px;
+        margin-top: -12rem;
+    }
+}
