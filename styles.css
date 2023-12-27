@@ -172,7 +172,7 @@ body {
     cursor: pointer;
 }
 
-.project-tile {
+#projects {
     background-color: #F0ECE5;
     width: 100vw;
     height: 100vh;
@@ -416,7 +416,7 @@ footer {
 
 @media (max-width: 1500px) {
 
-    .project-tile {
+    #projects {
         height: 1400px;
     }
 
@@ -441,7 +441,7 @@ footer {
 }
 
 @media (max-width: 1110px) {
-    .project-tile {
+    #projects {
         height: 2100px;
         margin: 0;
     }
@@ -457,7 +457,7 @@ footer {
         overflow-x: hidden;
     }
 
-    .project-tile {
+    #projects {
         height: 2200px;
         margin: 0;
     }
